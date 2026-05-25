@@ -1,0 +1,14 @@
+<p>todos works!</p>
+<!-- <p> {{todoService.todoItems[0].title}}</p> -->
+ <!-- <p> {{todoItems()[0].title}}</p> -->
+
+ <ul>
+     
+     @for (todo of todoItems(); track todo.id) {
+         <li  class="todos_item">
+             <input id="todo-{{todo.id}}" type="checkbox" [checked]="todo.completed"/>
+             <label for="todo-{{todo.id}}">{{todo.title}}</label>
+            </li>  
+            
+        }
+    </ul>

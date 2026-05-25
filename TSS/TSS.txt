@@ -1,0 +1,47 @@
+dependancy injection
+
+c# oop
+
+horization and vertical scaling
+
+database , postgras, ms sql
+
+store processor (sp)
+
+generac functions and classes
+
+testing , unit test , integration test
+
+joins , sql basic query
+
+kafka , redis
+
+.net framework
+multi tendency
+
+API
+
+
+
+encry decry
+
+DSA sorting array , string , linklist
+
+java springbort (optional .net)
+
+
+____________________________________________________________________________
+
+
+
+
+rever array , reverse string , searching , stack , queue, Link list, linear and non linear datastructure , sorting, tree and graph , hashing
+find duplicate in array , gargest ele , 2nd gargest ele , common ele in two array , binarary search , linear search , binary search tree vs avl tree , BFS DFS
+
+
+database sql
+
+Vertical vs Horizontal Scaling
+
+linklist reverse
+AVL tree
