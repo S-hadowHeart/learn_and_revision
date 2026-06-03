@@ -11,7 +11,7 @@ export function Logout()
         const apiCall = async () =>
         {
             try {
-                await axios.get(
+                await axios.post(
                     `${API_URL}/auth/logout`,
                     {},
                     {

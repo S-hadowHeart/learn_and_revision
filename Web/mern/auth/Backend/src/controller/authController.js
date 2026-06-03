@@ -75,12 +75,12 @@ const login = async (req,res) => {
 }
 
 const logout = async (req , res) => {
-    res.clearCookie("jwt", {
-      httpOnly: true,
-      secure: false,
-      sameSite: "strict",
-      path: "/",
-    });
+    res.cookie("jwt","",{
+        httpOnly : true,
+        secure : process.env.NODE_ENV === "production",
+        sameSite : "strict",
+        maxAge : 0, 
+    })
     console.log("Cookie cleared");
     res.status(200).json({
         status : "success",
