@@ -2,26 +2,44 @@
 import express from 'express';
 import { config } from 'dotenv';
 
-import MovieRouter from '../routes/movieRoutes.js'
-import AuthRouter from '../routes/authRoutes.js'
+import MovieRouter from './routes/movieRoutes.js'
+import AuthRouter from './routes/authRoutes.js'
+import HomeRouter from './routes/homeRoutes.js'
 
-import { connectDB,disconnectDB } from '../config/db.js';
+import { connectDB,disconnectDB } from './config/db.js';
+import cors from "cors"
+import cookieParser from "cookie-parser";
+
 const app = express();
 
 config();
 connectDB();
+
+
+app.use(
+  cors({
+    origin:process.env.FRONTENDURL,
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Set-Cookie']
+  })
+)
+
+app.use(cookieParser())
 
 // to handle json data we use middleware
 app.use(express.json())
 
 app.use("/movie",MovieRouter);
 app.use("/auth" ,AuthRouter);
+app.use("/home",HomeRouter)
 
 app.get("/hello",(req,res) => {
     res.json({message:'hello world'})
 })
 
-const port = 5001;
+const port = process.env.SERVER_PORT;
 
 app.listen(port , () => {
     console.log("Server is running");

@@ -17,6 +17,10 @@ export function Navbar()
                     <li className="hover:text-blue-400 transition">
                         <Link to="/register">Register</Link>
                     </li>
+
+                    <li className="hover:text-blue-400 transition">
+                        <Link to="/logout">Logout</Link>
+                    </li>
                 </ul>
 
             </div>

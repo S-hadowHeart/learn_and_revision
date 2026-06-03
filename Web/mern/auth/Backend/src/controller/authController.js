@@ -1,6 +1,6 @@
 import { prisma } from "../config/db.js"
 import argon2  from "argon2";
-import { generateToken } from "../src/untils/generatToken.js";
+import { generateToken } from "../untils/generatToken.js";
 
 const registration = async (req,res)=> {
     const { name,email,password } = req.body;
@@ -74,11 +74,14 @@ const login = async (req,res) => {
     })
 }
 
-const logout = async (res , req) => {
-    res.cookie("jwt" , "",{
-        httpOnly : true,
-        expires:new Date(0)
-    })
+const logout = async (req , res) => {
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      secure: false,
+      sameSite: "strict",
+      path: "/",
+    });
+    console.log("Cookie cleared");
     res.status(200).json({
         status : "success",
         message : "Logout successfully "
